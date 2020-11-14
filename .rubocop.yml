@@ -1,0 +1,8 @@
+Documentation:
+  Enabled: false
+
+Style/MixinUsage:
+  Enabled: false
+
+AllCops:
+    NewCops: enable
