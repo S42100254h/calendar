@@ -33,6 +33,9 @@ end
 
 Faker::Config.locale = :ja
 
+# FactoryBotを省略形で呼び出せるようにする
+config.include FactoryBot::Syntax::Methods
+
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
