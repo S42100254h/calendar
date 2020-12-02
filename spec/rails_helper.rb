@@ -33,9 +33,6 @@ end
 
 Faker::Config.locale = :ja
 
-# FactoryBotを省略形で呼び出せるようにする
-config.include FactoryBot::Syntax::Methods
-
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
@@ -67,4 +64,7 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  # FactoryBotを省略形で呼び出せるようにする
+  config.include FactoryBot::Syntax::Methods
 end
