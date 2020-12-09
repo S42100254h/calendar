@@ -49,6 +49,7 @@ group :development, :test do
   gem 'pry-byebug'
   gem 'pry-doc'
   gem 'pry-rails'
+  gem 'rspec_junit_formatter'
   gem 'rspec-rails'
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', require: false
