@@ -13,5 +13,11 @@ Lint/EmptyBlock:
 Style/AsciiComments:
   Enabled: false
 
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
 AllCops:
     NewCops: enable
