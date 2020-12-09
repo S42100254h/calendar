@@ -7,5 +7,11 @@ Style/MixinUsage:
 Style/FrozenStringLiteralComment:
   Enabled: false
 
+Lint/EmptyBlock:
+  Enabled: false
+
+Style/AsciiComments:
+  Enabled: false
+
 AllCops:
     NewCops: enable
