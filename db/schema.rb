@@ -10,10 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_201_209_093_433) do
+ActiveRecord::Schema.define(version: 20_201_210_081_220) do
   create_table 'schedules', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
     t.datetime 'created_at', null: false
     t.datetime 'updated_at', null: false
+    t.string 'title'
+    t.string 'location'
+    t.text 'description'
+    t.date 'date'
   end
 
   create_table 'users', options: 'ENGINE=InnoDB DEFAULT CHARSET=utf8', force: :cascade do |t|
@@ -29,8 +33,6 @@ ActiveRecord::Schema.define(version: 20_201_209_093_433) do
     t.datetime 'confirmation_sent_at'
     t.string 'unconfirmed_email'
     t.string 'name'
-    t.string 'nickname'
-    t.string 'image'
     t.string 'email'
     t.text 'tokens'
     t.datetime 'created_at', null: false
