@@ -22,5 +22,8 @@ Metrics/MethodLength:
 Metrics/BlockLength:
   Enabled: false
 
+Style/ClassAndModuleChildren:
+  Enabled: false
+
 AllCops:
     NewCops: enable
