@@ -57,4 +57,18 @@ RSpec.describe 'Api::V1::Schedules', type: :request do
       expect(response).to have_http_status(200)
     end
   end
+
+  describe 'PATCH /api/v1/schedules/:id' do
+    subject { patch(api_v1_schedule_path(schedule_id), params: params) }
+
+    let(:params) { { schedule: attributes_for(:schedule) } }
+    let!(:current_user) { create(:user) }
+    let!(:schedule) { create(:schedule, user: current_user) }
+    let(:schedule_id) { schedule.id }
+
+    it 'current_userに紐づけられたスケジュールが更新される' do
+      expect { subject }.to change { current_user.schedules.count }.by(0)
+      expect(response).to have_http_status(200)
+    end
+  end
 end
