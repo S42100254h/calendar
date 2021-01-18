@@ -1,5 +1,5 @@
 class Api::V1::SchedulesController < Api::V1::ApiController
-  before_action :set_schedule, only: [:update]
+  before_action :set_schedule, only: [:update, :destroy]
 
   def index
     schedules = Schedule.all
@@ -18,6 +18,11 @@ class Api::V1::SchedulesController < Api::V1::ApiController
 
   def update
     @schedule.update!(schedule_params)
+    render json: @schedule
+  end
+
+  def destroy
+    @schedule.destroy!
     render json: @schedule
   end
 
