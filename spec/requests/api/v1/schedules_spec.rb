@@ -27,11 +27,11 @@ RSpec.describe 'Api::V1::Schedules', type: :request do
       it 'スケジュールの詳細を取得できる' do
         subject
         res = JSON.parse(response.body)
-        expect(res["id"]).to eq 1
-        expect(res["title"]).to eq schedule.title
-        expect(res["location"]).to eq schedule.location
-        expect(res["description"]).to eq schedule.description
-        expect(res["date"]).to eq schedule.date.strftime("%Y-%m-%d")
+        expect(res['id']).to eq 1
+        expect(res['title']).to eq schedule.title
+        expect(res['location']).to eq schedule.location
+        expect(res['description']).to eq schedule.description
+        expect(res['date']).to eq schedule.date.strftime('%Y-%m-%d')
         expect(res.keys).to eq ['id', 'title', 'location', 'description', 'date', 'user']
         expect(response).to have_http_status(200)
       end
