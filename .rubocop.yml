@@ -28,5 +28,8 @@ Style/ClassAndModuleChildren:
 Style/WordArray:
   Enabled: false
 
+Style/SymbolArray:
+  Enabled: false
+
 AllCops:
     NewCops: enable
