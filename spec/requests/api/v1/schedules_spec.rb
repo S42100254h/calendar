@@ -45,4 +45,16 @@ RSpec.describe 'Api::V1::Schedules', type: :request do
       end
     end
   end
+
+  describe 'POST /api/v1/schedules' do
+    subject { post(api_v1_schedules_path, params: params) }
+
+    let(:params) { { schedule: attributes_for(:schedule) } }
+    let!(:current_user) { create(:user) }
+
+    it 'current_userに紐づけられたスケジュールが作成される' do
+      expect { subject }.to change { current_user.schedules.count }.by(1)
+      expect(response).to have_http_status(200)
+    end
+  end
 end
