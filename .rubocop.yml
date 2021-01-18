@@ -25,5 +25,8 @@ Metrics/BlockLength:
 Style/ClassAndModuleChildren:
   Enabled: false
 
+Style/WordArray:
+  Enabled: false
+
 AllCops:
     NewCops: enable
