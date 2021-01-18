@@ -24,7 +24,7 @@ RSpec.describe User, type: :model do
 
       it 'userが作られない' do
         user.valid?
-        expect(user.errors.messages[:name]).to include "is too long (maximum is 50 characters)"
+        expect(user.errors.messages[:name]).to include 'is too long (maximum is 50 characters)'
       end
     end
 
@@ -43,7 +43,7 @@ RSpec.describe User, type: :model do
 
       it 'userが作られない' do
         user.valid?
-        expect(user.errors.messages[:email]).to include "has already been taken"
+        expect(user.errors.messages[:email]).to include 'has already been taken'
       end
     end
 
@@ -61,7 +61,7 @@ RSpec.describe User, type: :model do
 
       it 'userが作られない' do
         user.valid?
-        expect(user.errors.messages[:password]).to include "is too short (minimum is 6 characters)"
+        expect(user.errors.messages[:password]).to include 'is too short (minimum is 6 characters)'
       end
     end
 
@@ -70,7 +70,7 @@ RSpec.describe User, type: :model do
 
       it 'userが作られない' do
         user.valid?
-        expect(user.errors.messages[:password]).to include "is too long (maximum is 128 characters)"
+        expect(user.errors.messages[:password]).to include 'is too long (maximum is 128 characters)'
       end
     end
   end
