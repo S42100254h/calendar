@@ -55,6 +55,7 @@ RSpec.describe 'Api::V1::Auth::Sessions', type: :request do
       let(:headers) { user.create_new_auth_token }
 
       it 'サインアウトできる' do
+        subject
         headers = response.headers
         expect(headers['uid']).to be nil
         expect(headers['client']).to be nil
