@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Api::V1::Auth::Registrations", type: :request do
+RSpec.describe 'Api::V1::Auth::Registrations', type: :request do
   describe 'POST /api/v1/auth' do
     subject { post(api_v1_user_registration_path, params: params) }
 
@@ -45,7 +45,7 @@ RSpec.describe "Api::V1::Auth::Registrations", type: :request do
 
     context 'passwordがnilの場合' do
       let(:params) { attributes_for(:user, password: nil) }
-      
+
       it 'userが登録できない' do
         expect { subject }.to change { User.count }.by(0)
         headers = response.headers
