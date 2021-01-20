@@ -1,5 +1,6 @@
 class Api::V1::SchedulesController < Api::V1::ApiController
   before_action :set_schedule, only: [:update, :destroy]
+  before_action :authenticate_user!, only: [:create, :update, :destroy]
 
   def index
     schedules = Schedule.all
