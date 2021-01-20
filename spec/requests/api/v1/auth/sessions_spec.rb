@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Api::V1::Auth::Sessions', type: :request do  
+RSpec.describe 'Api::V1::Auth::Sessions', type: :request do
   describe 'POST /api/v1/auth/sign_in' do
     subject { post(api_v1_user_session_path, params: params) }
 
@@ -33,7 +33,7 @@ RSpec.describe 'Api::V1::Auth::Sessions', type: :request do
     end
 
     context 'passwordが間違っていたとき' do
-      let(:params) { { email: user.email, password: Faker::Internet.password(min_length: 6, max_length: 128 ) } }
+      let(:params) { { email: user.email, password: Faker::Internet.password(min_length: 6, max_length: 128) } }
       let!(:user) { create(:user) }
 
       it 'サインインできない' do
