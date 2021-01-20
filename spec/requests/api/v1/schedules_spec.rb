@@ -51,7 +51,7 @@ RSpec.describe 'Api::V1::Schedules', type: :request do
 
     let(:params) { { schedule: attributes_for(:schedule) } }
     let!(:current_user) { create(:user) }
-    let(:headers) { current_user.create_new_auth_token}
+    let(:headers) { current_user.create_new_auth_token }
 
     it 'current_userに紐づけられたスケジュールが作成される' do
       expect { subject }.to change { current_user.schedules.count }.by(1)
@@ -66,7 +66,7 @@ RSpec.describe 'Api::V1::Schedules', type: :request do
     let!(:current_user) { create(:user) }
     let!(:schedule) { create(:schedule, user: current_user) }
     let(:schedule_id) { schedule.id }
-    let(:headers) { current_user.create_new_auth_token}
+    let(:headers) { current_user.create_new_auth_token }
 
     it 'current_userに紐づけられたスケジュールが更新される' do
       expect { subject }.to change { current_user.schedules.count }.by(0)
@@ -80,7 +80,7 @@ RSpec.describe 'Api::V1::Schedules', type: :request do
     let!(:current_user) { create(:user) }
     let!(:schedule) { create(:schedule, user: current_user) }
     let(:schedule_id) { schedule.id }
-    let(:headers) { current_user.create_new_auth_token}
+    let(:headers) { current_user.create_new_auth_token }
 
     it 'current_userに紐づいたスケジュールが削除される' do
       expect { subject }.to change { current_user.schedules.count }.by(-1)
