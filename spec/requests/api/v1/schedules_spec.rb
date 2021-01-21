@@ -47,10 +47,11 @@ RSpec.describe 'Api::V1::Schedules', type: :request do
   end
 
   describe 'POST /api/v1/schedules' do
-    subject { post(api_v1_schedules_path, params: params) }
+    subject { post(api_v1_schedules_path, params: params, headers: headers) }
 
     let(:params) { { schedule: attributes_for(:schedule) } }
     let!(:current_user) { create(:user) }
+    let(:headers) { current_user.create_new_auth_token }
 
     it 'current_userに紐づけられたスケジュールが作成される' do
       expect { subject }.to change { current_user.schedules.count }.by(1)
@@ -59,12 +60,13 @@ RSpec.describe 'Api::V1::Schedules', type: :request do
   end
 
   describe 'PATCH /api/v1/schedules/:id' do
-    subject { patch(api_v1_schedule_path(schedule_id), params: params) }
+    subject { patch(api_v1_schedule_path(schedule_id), params: params, headers: headers) }
 
     let(:params) { { schedule: attributes_for(:schedule) } }
     let!(:current_user) { create(:user) }
     let!(:schedule) { create(:schedule, user: current_user) }
     let(:schedule_id) { schedule.id }
+    let(:headers) { current_user.create_new_auth_token }
 
     it 'current_userに紐づけられたスケジュールが更新される' do
       expect { subject }.to change { current_user.schedules.count }.by(0)
@@ -73,11 +75,12 @@ RSpec.describe 'Api::V1::Schedules', type: :request do
   end
 
   describe 'DELETE /api/v1/schedules/:id' do
-    subject { delete(api_v1_schedule_path(schedule_id)) }
+    subject { delete(api_v1_schedule_path(schedule_id), headers: headers) }
 
     let!(:current_user) { create(:user) }
     let!(:schedule) { create(:schedule, user: current_user) }
     let(:schedule_id) { schedule.id }
+    let(:headers) { current_user.create_new_auth_token }
 
     it 'current_userに紐づいたスケジュールが削除される' do
       expect { subject }.to change { current_user.schedules.count }.by(-1)

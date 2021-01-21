@@ -31,5 +31,8 @@ Style/WordArray:
 Style/SymbolArray:
   Enabled: false
 
+Style/Alias:
+  Enabled: false
+
 AllCops:
     NewCops: enable
