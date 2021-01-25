@@ -34,5 +34,9 @@ Style/SymbolArray:
 Style/Alias:
   Enabled: false
 
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: double_quotes
+
 AllCops:
     NewCops: enable
