@@ -1,4 +1,5 @@
 import React from "react";
+import { GredList } from "@material-ui/core";
 
 const calendar = [
   "29",
@@ -40,11 +41,13 @@ const calendar = [
 
 const CalendarBoard = () => {
   return (
-    <ul>
-      {calendar.map((c) => {
-        <li>{c}</li>
-      })}
-    </ul>
+    <div>
+      <GredList className={StylesProvider.gred} cols={7} spacing={0} cellHeight="auto">
+        {calendar.map((c) => {
+          <li>{c}</li>
+        })}
+      </GredList>
+    </div>
   );
 };
 
