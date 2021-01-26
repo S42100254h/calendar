@@ -45,7 +45,7 @@ const CalendarBoard = () => {
     <div className="container">
       <GredList className={StylesProvider.gred} cols={7} spacing={0} cellHeight="auto">
         {calendar.map((c) => {
-          <li>{c}</li>
+          <li className="element">{c}</li>
         })}
       </GredList>
     </div>
