@@ -45,7 +45,11 @@ const CalendarBoard = () => {
     <div className="container">
       <GridList className="grid" cols={7} spacing={0} cellHeight="auto">
         {calendar.map((c) => {
-          <li className="element">{c}</li>;
+          return (
+            <li>
+              <div className="element">{c}</div>
+            </li>
+          );
         })}
       </GridList>
     </div>
