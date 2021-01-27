@@ -3,6 +3,7 @@ import { GridList } from "@material-ui/core";
 import "./style.css";
 import dayjs from "dayjs";
 import "dayjs/locale/ja";
+import CalendarElement from "../CalendaElement";
 
 dayjs.locale("ja");
 
@@ -28,7 +29,7 @@ const CalendarBoard = () => {
         {calendar.map((c) => {
           return (
             <li>
-              <div className="element">{c.format("D")}</div>
+              <CalendarElement>{c.format("D")}</CalendarElement>
             </li>
           );
         })}
