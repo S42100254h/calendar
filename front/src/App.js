@@ -1,12 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
 
-import CalendarBoard from "./CalendarBoard/index";
+import CalendarBoard from "./components/CalendarBoard/index";
 
-function App() {
-  <div>
-    <CalendarBoard />
-  </div>;
-}
+const App = () => {
+  return (
+    <div>
+      <CalendarBoard />
+    </div>
+  );
+};
 
 export default App;
