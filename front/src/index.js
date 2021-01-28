@@ -1,6 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import dayjs from "dayjs";
+import "dayjs/locale/ja";
 import App from "./App";
+
+dayjs.locale("ja");
 
 ReactDOM.render(
   <React.StrictMode>

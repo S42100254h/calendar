@@ -27,6 +27,7 @@
         "no-unused-vars": "off",
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
         "arrow-body-style": "off",
-        "array-callback-return": "off"
+        "array-callback-return": "off",
+        "react/prop-types": "off"
     }
 }
