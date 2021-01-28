@@ -13,7 +13,7 @@ const CalendarBoard = () => {
         {calendar.map((c) => {
           return (
             <li>
-              <CalendarElement>{c.format("D")}</CalendarElement>
+              <CalendarElement day={c} />
             </li>
           );
         })}

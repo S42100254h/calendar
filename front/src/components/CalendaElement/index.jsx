@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css";
 import { Typography } from "@material-ui/core";
 
-const CalendarElement = ({ children }) => {
+const CalendarElement = ({ day }) => {
   return (
     <div className="element">
       <Typography
@@ -11,7 +11,7 @@ const CalendarElement = ({ children }) => {
         variant="caption"
         component="div"
       >
-        { children }
+        { day.format("D") }
       </Typography>
     </div>
   );
