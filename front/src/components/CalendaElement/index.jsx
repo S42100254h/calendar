@@ -1,10 +1,18 @@
 import React from "react";
 import "./style.css";
+import { Typography } from "@material-ui/core";
 
 const CalendarElement = ({ children }) => {
   return (
     <div className="element">
-      <div classNmae="date">{ children }</div>
+      <Typography
+        className="date"
+        align="center"
+        variant="caption"
+        component="div"
+      >
+        { children }
+      </Typography>
     </div>
   );
 };
