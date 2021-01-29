@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import createCalendar from "../../services/calendar";
+import { createCalendar } from "../../services/calendar";
 import CalendarBoard from "./index";
 
 const mapStateToProps = (state) => ({ calendar: state.calendar });

@@ -6,7 +6,7 @@ import DehazeIcon from "@material-ui/icons/Dehaze";
 import CalendarTodayIcon from "@material-ui/icons/CalendarToday";
 import "./style.css";
 
-const Navigation = () => {
+const Navigation = ({ setNextMonth, setPreviousMonth }) => {
   return (
     <Toolbar className="toolbar">
       <IconButton>
@@ -16,10 +16,10 @@ const Navigation = () => {
       <Typography className="tool" color="textSecondary" variant="h5" component="h1">
         カレンダー
       </Typography>
-      <IconButton size="small">
+      <IconButton size="small" onClick={setPreviousMonth}>
         <ArrowBackIos />
       </IconButton>
-      <IconButton size="small">
+      <IconButton size="small" onClick={setNextMonth}>
         <ArrowForwardIos />
       </IconButton>
     </Toolbar>
