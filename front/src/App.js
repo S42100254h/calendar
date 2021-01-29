@@ -10,9 +10,9 @@ import rootReducer from "./redux/rootReducer";
 const store = createStore(rootReducer);
 
 const App = () => (
-    <Provider store={store}>
-      <CalendarBoard />
-    </Provider>
+  <Provider store={store}>
+    <CalendarBoard />
+  </Provider>
 );
 
 export default App;

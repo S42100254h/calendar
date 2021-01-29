@@ -7,15 +7,15 @@ const day = dayjs();
 
 const init = {
   year: day.year(),
-  month: day.month() + 1
+  month: day.month() + 1,
 };
 
 const calendarReducer = (state = init, action) => {
   switch (action.type) {
-    case CALENDAR_SET_MONTH:
-      return payload;  
-    default:
-      return state;
+  case CALENDAR_SET_MONTH:
+    return payload;
+  default:
+    return state;
   }
 };
 
