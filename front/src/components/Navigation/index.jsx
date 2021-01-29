@@ -4,15 +4,16 @@ import ArrowBackIos from "@material-ui/icons/ArrowBackIos";
 import ArrowForwardIos from "@material-ui/icons/ArrowForwardIos";
 import DehazeIcon from "@material-ui/icons/Dehaze";
 import CalendarTodayIcon from "@material-ui/icons/CalendarToday";
+import "./style.css";
 
 const Navigation = () => {
   return (
-    <Toolbar>
+    <Toolbar className="toolbar">
       <IconButton>
         <DehazeIcon />
       </IconButton>
       <CalendarTodayIcon />
-      <Typography color="textSecondary" variant="h5" component="h1">
+      <Typography className="tool" color="textSecondary" variant="h5" component="h1">
         カレンダー
       </Typography>
       <IconButton size="small">
