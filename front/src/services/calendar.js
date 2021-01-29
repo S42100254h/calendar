@@ -1,8 +1,8 @@
 import dayjs from "dayjs";
 
-const createCalendar = () => {
+const createCalendar = (month) => {
   // 今月の最初の日を追加
-  const firstDay = dayjs().startOf("month");
+  const firstDay = getMonth(month);
   // 最初の日の曜日のindexを取得
   const firstDayIndex = firstDay.day();
 
@@ -11,6 +11,10 @@ const createCalendar = () => {
     const day = firstDay.add(diffFromDay, "day");
     return day;
   });
+};
+
+export const getMonth = ({year, month}) => {
+  return dayjs(`${year}-${month}`);
 };
 
 export default createCalendar;
