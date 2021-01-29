@@ -1,5 +1,5 @@
-import Navigation from "./index";
 import { connect } from "react-redux";
+import Navigation from "./index";
 
 const mapStateToProps = (state) => ({});
 
