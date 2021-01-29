@@ -1,10 +1,26 @@
 import { connect } from "react-redux";
 import Navigation from "./index";
 
-const mapStateToProps = (state) => ({});
+import { getNextMonth, getPreviousMonth } from "../../services/calendar";
+import { calendarSetMonth } from "../../redux/calendar/actions";
 
-const mapDispatchToProps = (dispatch) => ({});
+const mapStateToProps = (state) => ({ calendar: state.calendar });
 
-const mergeProps = (stateProps, dispatchProps) => ({});
+const mapDispatchToProps = (dispatch) => ({
+  setMonth: month => {
+    dispatch(calendarSetMonth(month));
+  }
+});
+
+const mergeProps = (stateProps, dispatchProps) => ({
+  setNextMonth: () => {
+    const nextMonth = getNextMonth(stateProps.calendar);
+    dispatchProps.setMonth(nextMonth);
+  },
+  setPreviousMonth: () => {
+    const previousMonth = getPreviousMonth(stateProps.calendar);
+    dispatchProps.setMonth(previousMonth);
+  }
+});
 
 export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(Navigation);
