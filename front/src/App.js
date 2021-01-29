@@ -1,14 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import { createStore } from "redux";
 
 import CalendarBoard from "./components/CalendarBoard/index";
+import rootReducer from "./redux/rootReducer";
 
-const App = () => {
-  return (
-    <div>
+const store = createStore(rootReducer);
+
+const App = () => (
+    <Provider store={store}>
       <CalendarBoard />
-    </div>
-  );
-};
+    </Provider>
+);
 
 export default App;
