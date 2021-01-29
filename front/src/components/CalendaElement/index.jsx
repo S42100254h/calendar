@@ -2,8 +2,9 @@ import React from "react";
 import "./style.css";
 import dayjs from "dayjs";
 import { Typography } from "@material-ui/core";
+import { getMonth } from "../../services/calendar";
 
-const CalendarElement = ({ day }) => {
+const CalendarElement = ({ day, month }) => {
   // 各月の１日を取得
   const isFirstDay = day.date() === 1;
   // 各月の１日だけ月情報をつける
@@ -15,7 +16,8 @@ const CalendarElement = ({ day }) => {
   const isToday = day.format(compareFormat) === today.format(compareFormat);
 
   // 今月以外をグレーダウンする
-  const isCurrentMonth = day.month() === today.month();
+  const currentMonth = getMonth(month);
+  const isCurrentMonth = day.month() === currentMonth.month();
   const textColor = isCurrentMonth ? "textPrimary" : "textSecondary";
 
   return (
