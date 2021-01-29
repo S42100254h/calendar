@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
 
-import CalendarBoard from "./components/CalendarBoard/index";
+import CalendarBoard from "./components/CalendarBoard/container";
 
 import rootReducer from "./redux/rootReducer";
 
