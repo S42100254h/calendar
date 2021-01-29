@@ -7,9 +7,9 @@ import { calendarSetMonth } from "../../redux/calendar/actions";
 const mapStateToProps = (state) => ({ calendar: state.calendar });
 
 const mapDispatchToProps = (dispatch) => ({
-  setMonth: month => {
+  setMonth: (month) => {
     dispatch(calendarSetMonth(month));
-  }
+  },
 });
 
 const mergeProps = (stateProps, dispatchProps) => ({
@@ -20,7 +20,7 @@ const mergeProps = (stateProps, dispatchProps) => ({
   setPreviousMonth: () => {
     const previousMonth = getPreviousMonth(stateProps.calendar);
     dispatchProps.setMonth(previousMonth);
-  }
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(Navigation);
