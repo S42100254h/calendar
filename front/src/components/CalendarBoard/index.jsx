@@ -6,7 +6,6 @@ import CalendarElement from "../CalendaElement";
 const days = ["日", "月", "火", "水", "木", "金", "土"];
 
 const CalendarBoard = ({ calendar }) => {
-  console.log(calendar);
   return (
     <div className="container">
       <GridList className="grid" cols={7} spacing={0} cellHeight="auto">
