@@ -10,7 +10,7 @@ const CalendarBoard = ({ calendar, month }) => {
     <div className="container">
       <GridList className="grid" cols={7} spacing={0} cellHeight="auto">
         {days.map((d) => (
-          <li>
+          <li key={d.toString()}>
             <Typography
               className="days"
               color="textSecondary"
@@ -25,7 +25,7 @@ const CalendarBoard = ({ calendar, month }) => {
 
         {calendar.map((c) => {
           return (
-            <li>
+            <li key={c.toString()}>
               <CalendarElement day={c} month={month} />
             </li>
           );
