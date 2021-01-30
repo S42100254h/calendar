@@ -1,5 +1,5 @@
-import AddScheduleDialog from "./index";
 import { connect } from "react-redux";
+import AddScheduleDialog from "./index";
 
 const mapStateToProps = (state) => ({});
 

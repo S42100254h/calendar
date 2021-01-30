@@ -18,7 +18,7 @@ const init = {
   isDialogOpen: false,
 };
 
-const addScheduleReducer = (state = init) => {
+const addScheduleReducer = (state = init, action) => {
   switch (action.type) {
   case ADD_SCHEDULE_SET_VALUE:
     return { ...state, form: { ...state.form, ...payload } };
