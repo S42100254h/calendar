@@ -5,7 +5,7 @@ import {
   ADD_SCHEDULE_CLOSE_DIALOG,
   addScheduleSetValue,
   addScheduleOpenDialog,
-  addScheduleCloseDialog
+  addScheduleCloseDialog,
 } from "./actions";
 
 const init = {
@@ -15,7 +15,7 @@ const init = {
     date: null,
     location: "",
   },
-  isDialogOpen: false
+  isDialogOpen: false,
 };
 
 const addScheduleReducer = (state = init) => {
@@ -23,7 +23,7 @@ const addScheduleReducer = (state = init) => {
   case ADD_SCHEDULE_SET_VALUE:
     return { ...state, form: { ...state.form, ...payload } };
   case ADD_SCHEDULE_OPEN_DIALOG:
-    return {...state, isDialogOpen: true }
+    return { ...state, isDialogOpen: true };
   case ADD_SCHEDULE_CLOSE_DIALOG:
     return init;
   default:
