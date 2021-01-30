@@ -5,7 +5,7 @@ import {
   ADD_SCHEDULE_CLOSE_DIALOG,
   addScheduleSetValue,
   addScheduleOpenDialog,
-  addScheduleOpenDialog
+  addScheduleCloseDialog
 } from "./actions";
 
 const init = {

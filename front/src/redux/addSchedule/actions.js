@@ -11,6 +11,6 @@ export const addScheduleOpenDialog = () => ({
   type: ADD_SCHEDULE_OPEN_DIALOG
 });
 
-export const addScheduleOpenDialog = () => ({
+export const addScheduleCloseDialog = () => ({
   type: ADD_SCHEDULE_CLOSE_DIALOG
 });
