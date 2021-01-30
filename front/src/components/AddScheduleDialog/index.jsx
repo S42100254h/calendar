@@ -1,9 +1,9 @@
 import React from "react";
 import { Dialog, DialogContent } from "@material-ui/core";
 
-const AddScheduleDialog = () => {
+const AddScheduleDialog = ({ schedule: { isDialogOpen } }) => {
   return (
-    <Dialog open maxWidth="xs" fullWidth>
+    <Dialog open={isDialogOpen} maxWidth="xs" fullWidth>
       <DialogContent>dailog</DialogContent>
     </Dialog>
   );
