@@ -1,15 +1,15 @@
 import addScheduleReducer from "../../../redux/addSchedule/reducer";
 import { addScheduleSetValue, addScheduleOpenDialog, addScheduleCloseDialog } from "../../../redux/addSchedule/actions";
-import dayjs from "dayjs";
+import Faker from "faker";
 
 describe("addScheduleReducerのテスト", () => {
 
   const init = {
     form: {
-      title: "test_title",
-      description: "test_description",
-      date: dayjs(),
-      location: "test_location",
+      title: Faker.lorem.word(),
+      description: Faker.lorem.text(),
+      date: Faker.date.recent(),
+      location: Faker.random.locale(),
     },
     isDialogOpen: false,
   };
