@@ -11,7 +11,7 @@ executors:
           BUNDLER_VERSION: 2.1.4
       - image: circleci/mysql:5.7-ram
         environment:
-          MYSQL_ALLOW_EMPTY_PASSWORD: true
+          MYSQL_ALLOW_EMPTY_PASSWORD: "true"
     working_directory: ~/calendar
   
   node:
@@ -120,16 +120,14 @@ jobs:
       - restore_cache: # ソースコードの復元
           key: v3-calendar-{{ .Environment.CIRCLE_SHA2 }}
       - restore_cache: # node_modulesを復元
-          keys:
-            - v4-dependencies-{{ checksum "package-lock.json" }}
-            - v4-dependencies-
+          key: v4-dependencies-{{ checksum "package-lock.json" }}
       - run:
           name: npm install dependencies
           command: npm install
       - save_cache:
           key: v4-dependencies-{{ checksum "package-lock.json" }}
           paths:
-            - ~/calendar/front/node_modules
+            - ~/calendar/front/.node_modules
 
   jest:
     executor: node
@@ -137,9 +135,7 @@ jobs:
       - restore_cache: # ソースコードの復元
           key: v3-calendar-{{ .Environment.CIRCLE_SHA2 }}
       - restore_cache: # node_modulesを復元
-          keys:
-            - v4-dependencies-{{ checksum "package-lock.json" }}
-            - v4-dependencies-
+          key: v4-dependencies-{{ checksum "front/package-lock.json" }}            
       - run:
           name: execute test
           working_directory: ~/calendar/front
@@ -151,13 +147,11 @@ jobs:
       - restore_cache: # ソースコードの復元
           key: v3-calendar-{{ .Environment.CIRCLE_SHA2 }}
       - restore_cache: # node_modulesを復元
-          keys:
-            - v4-dependencies-{{ checksum "package-lock.json" }}
-            - v4-dependencies-
+          key: v4-dependencies-{{ checksum "front/package-lock.json" }}
       - run:
           name: execute eslint
           working_directory: ~/calendar/front
-          command: ./node_modules/.bin/eslint src
+          command: npm test
 
 workflows:
   build_backend:
