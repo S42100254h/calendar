@@ -11,8 +11,13 @@ executors:
           BUNDLER_VERSION: 2.1.4
       - image: circleci/mysql:5.7-ram
         environment:
-          MYSQL_ALLOW_EMPTY_PASSWORD: true
+          MYSQL_ALLOW_EMPTY_PASSWORD: "true"
     working_directory: ~/calendar
+  
+  node:
+    docker:
+      - image: circleci/node:12
+    working_directory: ~/calendar/front
 
 commands:
   install_bundler:
@@ -21,7 +26,7 @@ commands:
       - run: gem install bundler -v 2.1.4
 
 jobs:
-  fetch_source_code:
+  fetch_source_code_back:
     executor:
       name: rails
     steps:
@@ -98,16 +103,78 @@ jobs:
           name: Execute rubocop
           command: |
             bundle exec rubocop
+
+  fetch_source_code_front:
+    executor:
+      name: node
+    steps:
+    - checkout
+    - save_cache:
+        key: v3-calendar-{{ .Environment.CIRCLE_SHA2 }}
+        paths:
+            - ~/calendar/front
+
+  npm_dependencies:
+    executor: node
+    steps:
+      - restore_cache: # ソースコードの復元
+          key: v3-calendar-{{ .Environment.CIRCLE_SHA2 }}
+      - restore_cache: # node_modulesを復元
+          key: v4-dependencies-{{ checksum "package-lock.json" }}
+      - run:
+          name: npm install dependencies
+          command: npm install
+      - save_cache:
+          key: v4-dependencies-{{ checksum "package-lock.json" }}
+          paths:
+            - ~/calendar/front/.node_modules
+
+  jest:
+    executor: node
+    steps:
+      - restore_cache: # ソースコードの復元
+          key: v3-calendar-{{ .Environment.CIRCLE_SHA2 }}
+      - restore_cache: # node_modulesを復元
+          key: v4-dependencies-{{ checksum "front/package-lock.json" }}            
+      - run:
+          name: execute test
+          working_directory: ~/calendar/front
+          command: npm test
+
+  eslint:
+    executor: node
+    steps:
+      - restore_cache: # ソースコードの復元
+          key: v3-calendar-{{ .Environment.CIRCLE_SHA2 }}
+      - restore_cache: # node_modulesを復元
+          key: v4-dependencies-{{ checksum "front/package-lock.json" }}
+      - run:
+          name: execute eslint
+          working_directory: ~/calendar/front
+          command: npm test
+
 workflows:
-  build:
+  build_backend:
     jobs:
-      - fetch_source_code
+      - fetch_source_code_back
       - bundle_dependencies:
           requires:
-            - fetch_source_code
+            - fetch_source_code_back
       - rspec:
           requires:
             - bundle_dependencies
       - rubocop:
           requires:
             - bundle_dependencies
+  build_frontend:
+    jobs:
+      - fetch_source_code_front
+      - npm_dependencies:
+          requires:
+            - fetch_source_code_front
+      - jest:
+          requires:
+            - npm_dependencies
+      - eslint:
+          requires:
+            - npm_dependencies
