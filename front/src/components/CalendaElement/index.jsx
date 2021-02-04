@@ -2,7 +2,6 @@ import React from "react";
 import "./style.css";
 import dayjs from "dayjs";
 import { Typography } from "@material-ui/core";
-import { getMonth } from "../../services/calendar";
 import { isSameDay, isSameMonth, isFirstDay } from "../../services/calendar";
 
 const CalendarElement = ({ day, month }) => {
