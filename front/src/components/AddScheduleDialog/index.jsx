@@ -62,6 +62,7 @@ const AddScheduleDialog = ({
               disableToolbar
               fullWidth
               style={spacer}
+              autoOk="true"
             />
           </Grid>
         </Grid>
