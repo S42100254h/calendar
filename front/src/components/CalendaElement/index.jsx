@@ -30,7 +30,7 @@ const CalendarElement = ({ day, month, schedules }) => {
           { day.format(format) }
         </span>
       </Typography>
-      <div className="schedules">
+      <div>
         {schedules.map((e) => (
           <Schedule key={e.id} schedule={e} />
         ))}
