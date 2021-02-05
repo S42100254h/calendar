@@ -1,7 +1,16 @@
+import dayjs from "dayjs";
 import { SCHEDULES_ADD_ITEM } from "./actions";
 
 const init = {
-  items: [],
+  items: [
+    {
+      id: 1,
+      title: "test",
+      date: dayjs(),
+      location: "conference",
+      description: "About neko",
+    },
+  ],
   isLoading: false,
 };
 
