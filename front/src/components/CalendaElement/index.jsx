@@ -5,7 +5,7 @@ import { Typography } from "@material-ui/core";
 import { isSameDay, isSameMonth, isFirstDay } from "../../services/calendar";
 import Schedule from "../Schedule";
 
-const CalendarElement = ({ day, month, schedules }) => {
+const CalendarElement = ({ day, month, schedules, ...props }) => {
   // 各月の１日だけ月情報をつける
   const format = isFirstDay(day) ? "M月D日" : "D";
 
@@ -32,7 +32,7 @@ const CalendarElement = ({ day, month, schedules }) => {
       </Typography>
       <div>
         {schedules.map((e) => (
-          <Schedule key={e.id} schedule={e} />
+          <Schedule key={e.id} schedule={e} {...props} />
         ))}
       </div>
     </div>
