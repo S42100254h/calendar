@@ -16,7 +16,7 @@ const spacer = (top, bottom) => ({
 });
 
 const currentScheduleDialog = ({
-  schedule: { item, isDialogOpen },
+  schedule: { items, isDialogOpen },
   closeDialog,
 }) => {
   return (
@@ -30,7 +30,7 @@ const currentScheduleDialog = ({
       </DialogActions>
 
       <DialogContent>
-        {item && (
+        {items && (
           <>
             <div>
               <Grid
@@ -40,21 +40,21 @@ const currentScheduleDialog = ({
                 justify="space-between"
                 style={spacer(0, 30)}
               >
-                <Grid item>
+                <Grid items>
                   <span className="box" />
                 </Grid>
-                <Grid item xs={10}>
+                <Grid items xs={10}>
                   <Typography variant="h5" component="h2">
-                    {item.title}
+                    {items.title}
                   </Typography>
                   <Typography color="textSecondary">
-                    {item.date.format("M月 D日")}
+                    {items.date.format("M月 D日")}
                   </Typography>
                 </Grid>
               </Grid>
             </div>
 
-            {item.location && (
+            {items.location && (
               <Grid
                 container
                 spacing={1}
@@ -62,15 +62,15 @@ const currentScheduleDialog = ({
                 justify="space-between"
                 style={spacer(0, 4)}
               >
-                <Grid item>
+                <Grid items>
                   <LocationOnOutlined />
                 </Grid>
-                <Grid item xs={10}>
-                  <Typography>{item.location}</Typography>
+                <Grid items xs={10}>
+                  <Typography>{items.location}</Typography>
                 </Grid>
               </Grid>
             )}
-            {item.description && (
+            {items.description && (
               <Grid
                 container
                 spacing={1}
@@ -78,11 +78,11 @@ const currentScheduleDialog = ({
                 justify="space-between"
                 style={spacer(0, 4)}
               >
-                <Grid item>
+                <Grid items>
                   <NotesOutlined />
                 </Grid>
-                <Grid item xs={10}>
-                  <Typography>{item.description}</Typography>
+                <Grid items xs={10}>
+                  <Typography>{items.description}</Typography>
                 </Grid>
               </Grid>
             )}
