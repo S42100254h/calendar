@@ -7,7 +7,7 @@ const mapStateToProps = (state) => ({ schedule: state.currentSchedule });
 const mapDispatchToProps = (dispatch) => ({
   closeDialog: () => {
     dispatch(currentScheduleCloseDialog());
-  }
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AddScheduleDialog);

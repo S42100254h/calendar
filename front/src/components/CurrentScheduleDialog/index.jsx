@@ -4,25 +4,25 @@ import {
   DialogContent,
   IconButton,
   DialogActions,
-  Gred,
-  Typography
+  Grid,
+  Typography,
 } from "@material-ui/core";
 import { Close, LocationOnOutlined, NotesOutlined } from "@material-ui/icons";
 
 import "./style.css";
 
 const spacer = (top, bottom) => ({
-  margin: `${top}px 0 ${bottom}px 0`
+  margin: `${top}px 0 ${bottom}px 0`,
 });
 
 const currentScheduleDialog = ({
   schedule: { item, isDialogOpen },
-  closeDialog
+  closeDialog,
 }) => {
   return (
     <Dialog open={isDialogOpen} onClose={closeDialog} maxWidth="xs" fullWidth>
       <DialogActions>
-        <div className={styles.closeButton}>
+        <div className="closeButton">
           <IconButton onClick={closeDialog} size="small">
             <Close />
           </IconButton>
@@ -41,7 +41,7 @@ const currentScheduleDialog = ({
                 style={spacer(0, 30)}
               >
                 <Grid item>
-                  <span className={styles.box}></span>
+                  <span className="box" />
                 </Grid>
                 <Grid item xs={10}>
                   <Typography variant="h5" component="h2">

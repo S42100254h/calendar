@@ -10,7 +10,7 @@ const CalendarBoard = ({
   month,
   openAddScheduleDialog,
   openCurrentScheduleDialog,
- }) => {
+}) => {
   return (
     <div className="container">
       <GridList className="grid" cols={7} spacing={0} cellHeight="auto">
@@ -31,7 +31,12 @@ const CalendarBoard = ({
         {calendar.map(({ date, schedules }) => {
           return (
             <li key={date.toString()} onClick={() => openAddScheduleDialog(date)}>
-              <CalendarElement day={date} month={month} schedules={schedules} onClickSchedule={openCurrentScheduleDialog} />
+              <CalendarElement
+                day={date}
+                month={month}
+                schedules={schedules}
+                onClickSchedule={openCurrentScheduleDialog}
+              />
             </li>
           );
         })}
