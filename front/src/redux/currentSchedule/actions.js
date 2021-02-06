@@ -8,9 +8,9 @@ export const currentSchedulesSetItem = (payload) => ({
 });
 
 export const currentScheduleOpenDialog = () => ({
-  type: CURRENT_SCHEDULE_OPEN_DIALOG
+  type: CURRENT_SCHEDULE_OPEN_DIALOG,
 });
 
 export const currentScheduleCloseDialog = () => ({
-  type: CURRENT_SCHEDULE_CLOSE_DIALOG
+  type: CURRENT_SCHEDULE_CLOSE_DIALOG,
 });
