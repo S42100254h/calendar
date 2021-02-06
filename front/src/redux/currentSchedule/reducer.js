@@ -12,7 +12,7 @@ const init = {
 const currentScheduleReducer = (state = init, action) => {
   switch (action.type) {
     case CURRENT_SCHEDULE_SET_ITEM:
-      return { ...state, item: action.payload };
+      return { ...state, items: action.payload };
     case CURRENT_SCHEDULE_OPEN_DIALOG:
       return { ...state, isDialogOpen: true };
     case CURRENT_SCHEDULE_CLOSE_DIALOG:
