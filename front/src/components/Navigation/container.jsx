@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import Navigation from "./index";
+import { asyncSchedulesFetchItem } from "../../redux/schedules/effects";
 
 import { getNextMonth, getPreviousMonth, getMonth, formatMonth } from "../../services/calendar";
 import { calendarSetMonth } from "../../redux/calendar/actions";
@@ -10,6 +11,9 @@ const mapDispatchToProps = (dispatch) => ({
   setMonth: (month) => {
     dispatch(calendarSetMonth(month));
   },
+  fetchItem: (month) => {
+    dispatch(asyncSchedulesFetchItem(month));
+  },
 });
 
 const mergeProps = (stateProps, dispatchProps) => ({
@@ -18,15 +22,18 @@ const mergeProps = (stateProps, dispatchProps) => ({
   setNextMonth: () => {
     const nextMonth = getNextMonth(stateProps.calendar);
     dispatchProps.setMonth(nextMonth);
+    dispatchProps.fetchItem(nextMonth);
   },
   setPreviousMonth: () => {
     const previousMonth = getPreviousMonth(stateProps.calendar);
     dispatchProps.setMonth(previousMonth);
+    dispatchProps.fetchItem(previousMonth);
   },
   setMonth: (dayObj) => {
     // dayjsインスタンスからreduxのstateに変更
     const month = formatMonth(dayObj);
     dispatchProps.setMonth(month);
+    dispatchProps.fetchItem(month);
   },
 });
 
