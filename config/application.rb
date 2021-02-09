@@ -30,9 +30,9 @@ module Calendar
         origins "localhost:3000"
 
         resource "*",
-          headers: :any,
-          methods: [:get, :post, :put, :patch, :delete],
-          credentials: true
+                 headers: :any,
+                 methods: [:get, :post, :put, :patch, :delete],
+                 credentials: true
       end
     end
 
