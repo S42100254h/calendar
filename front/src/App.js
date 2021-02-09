@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
 import DayjsUtils from "@date-io/dayjs";
 import { MuiPickersUtilsProvider } from "@material-ui/pickers";
 
