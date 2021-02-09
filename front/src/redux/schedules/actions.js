@@ -13,5 +13,5 @@ export const schedulesFetchItem = (payload) => ({
 });
 
 export const schedulesSetLoading = () => ({
-  type: SCHEDULE_SET_LOADING
+  type: SCHEDULE_SET_LOADING,
 });
