@@ -31,6 +31,7 @@ const Navigation = ({ setNextMonth, setPreviousMonth, setMonth, month }) => {
         format="YYYY年M月"
         animateYearScrolling
         disableToolbar
+        autoOk="true"
       />
     </Toolbar>
   );
