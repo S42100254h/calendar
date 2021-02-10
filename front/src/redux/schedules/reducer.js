@@ -3,6 +3,7 @@ import {
   SCHEDULES_ADD_ITEM,
   SCHEDULE_FETCH_ITEM,
   SCHEDULE_SET_LOADING,
+  SCHEDULE_DELETE_ITEM,
 } from "./actions";
 
 const init = {
@@ -24,6 +25,12 @@ const schedulesReducer = (state = init, action) => {
       isLoading: true,
     };
   case SCHEDULE_FETCH_ITEM:
+    return {
+      ...state,
+      isLoading: false,
+      items: action.payload,
+    };
+  case SCHEDULE_DELETE_ITEM:
     return {
       ...state,
       isLoading: false,
