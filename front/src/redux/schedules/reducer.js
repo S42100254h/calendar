@@ -15,6 +15,7 @@ const schedulesReducer = (state = init, action) => {
   case SCHEDULES_ADD_ITEM:
     return {
       ...state,
+      isLoading: false,
       items: [...state.items, { ...action.payload }],
     };
   case SCHEDULE_SET_LOADING:
