@@ -1,6 +1,7 @@
 export const SCHEDULES_ADD_ITEM = "SCHEDULES_ADD_ITEM";
 export const SCHEDULE_FETCH_ITEM = "SCHEDULE_FETCH_ITEM";
 export const SCHEDULE_SET_LOADING = "SCHEDULE_SET_LOADING";
+export const SCHEDULE_DELETE_ITEM = "SCHEDULE_DELETE_ITEM";
 
 export const schedulesAddItem = (payload) => ({
   type: SCHEDULES_ADD_ITEM,
@@ -14,4 +15,9 @@ export const schedulesFetchItem = (payload) => ({
 
 export const schedulesSetLoading = () => ({
   type: SCHEDULE_SET_LOADING,
+});
+
+export const schedulesDeleteItem = (payload) => ({
+  type: SCHEDULE_DELETE_ITEM,
+  payload,
 });
