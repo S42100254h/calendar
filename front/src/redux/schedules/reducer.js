@@ -1,14 +1,16 @@
-import dayjs from "dayjs";
 import {
   SCHEDULES_ADD_ITEM,
   SCHEDULE_FETCH_ITEM,
   SCHEDULE_SET_LOADING,
   SCHEDULE_DELETE_ITEM,
+  SCHEDULE_ASYNC_FAILURE,
+  SCHEDULE_RESET_ERROR,
 } from "./actions";
 
 const init = {
   items: [],
   isLoading: false,
+  error: null,
 };
 
 const schedulesReducer = (state = init, action) => {
@@ -35,6 +37,16 @@ const schedulesReducer = (state = init, action) => {
       ...state,
       isLoading: false,
       items: action.payload,
+    };
+  case SCHEDULE_ASYNC_FAILURE:
+    return {
+      ...state,
+      error: action.error,
+    };
+  case SCHEDULE_RESET_ERROR:
+    return {
+      ...state,
+      error: null,
     };
   default:
     return state;
