@@ -25,6 +25,4 @@ export const post = async (path, body) => {
 export const deleteRequest = async (path) => {
   const options = { method: "DELETE" };
   await fetch(url(path), options);
-
-  return;
 };

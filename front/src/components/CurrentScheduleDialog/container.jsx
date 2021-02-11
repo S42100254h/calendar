@@ -19,7 +19,7 @@ const mergeProps = (stateProps, dispatchProps) => ({
   ...stateProps,
   ...dispatchProps,
   deleteItem: () => {
-    const { id } = stateProps.schedule.item;
+    const { id } = stateProps.schedule.items;
     dispatchProps.deleteItem(id);
   },
 });
