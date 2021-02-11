@@ -3,6 +3,7 @@ import {
   schedulesFetchItem,
   schedulesAddItem,
   schedulesDeleteItem,
+  schedulesAsyncFailure,
 } from "./actions";
 import { get, post, deleteRequest } from "../../services/api";
 import { formatSchedule } from "../../services/schedule";
@@ -17,6 +18,7 @@ export const asyncSchedulesFetchItem = ({ month, year }) => async (dispatch) => 
     dispatch(schedulesFetchItem(formatedSchedule));
   } catch(err) {
     console.error(err);
+    dispatch(schedulesAsyncFailure(err.message));
   }
 };
 
@@ -31,6 +33,7 @@ export const asyncSchedulesAddItem = (schedule) => async (dispatch) => {
     dispatch(schedulesAddItem(newSchedule));
   } catch(err) {
     console.error(err);
+    dispatch(schedulesAsyncFailure(err.message));
   }
 };
 
@@ -46,5 +49,6 @@ export const asyncSchedulesDeleteItem = (id) => async (dispatch, getState) => {
     dispatch(schedulesDeleteItem(newSchedules));
   } catch(err) {
     console.error(err);
+    dispatch(schedulesAsyncFailure(err.message));
   }
 };
