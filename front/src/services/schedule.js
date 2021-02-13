@@ -1,7 +1,9 @@
 import dayjs from "dayjs";
 import { isSameDay } from "./calendar";
 
-const isScheduleEmpty = (schedule) => !schedule.title && !schedule.description && !schedule.location;
+const isScheduleEmpty = (schedule) => (
+  !schedule.title && !schedule.description && !schedule.location
+);
 
 export const setSchedules = (calendar, schedules) => (
   calendar.map((c) => ({
