@@ -8,7 +8,7 @@ import {
   Link,
 } from "@material-ui/core";
 
-const Login = () => {
+const Login = (login) => {
   return (
     <div>
       <Grid container spacing={0} justify="center" direction="row">
@@ -29,7 +29,7 @@ const Login = () => {
                 fullWidth
                 name="username"
                 variant="outlined"
-                value=""
+                value="yuki"
                 required
                 autoFocus
               />
@@ -41,7 +41,7 @@ const Login = () => {
                 fullWidth
                 name="email"
                 variant="outlined"
-                value=""
+                value="sawabe0v0@gmail.com"
                 required
                 autoFocus
               />
@@ -53,7 +53,7 @@ const Login = () => {
                 fullWidth
                 name="password"
                 variant="outlined"
-                value=""
+                value="a8810097"
                 required
                 autoFocus
               />
@@ -64,6 +64,7 @@ const Login = () => {
                 color="primary"
                 type="submit"
                 className="button"
+                onClick={login}
               >
                 送信
               </Button>

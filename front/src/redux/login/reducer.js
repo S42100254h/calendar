@@ -11,10 +11,10 @@ const init = {
 
 const loginReducer = (state = init, action) => {
   switch (action.type) {
-    case loginSetValue:
-      return { ...state, form: {...state.form, ...action.payload } };
-    default:
-      return state;
+  case loginSetValue:
+    return { ...state, form: { ...state.form, ...action.payload } };
+  default:
+    return state;
   }
 };
 
