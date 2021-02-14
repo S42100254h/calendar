@@ -1,7 +1,7 @@
 import React from "react";
 
 const Login = () => {
-  return(
+  return (
     <div>login page</div>
   );
 };
