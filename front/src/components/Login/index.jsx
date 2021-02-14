@@ -8,7 +8,7 @@ import {
   Link,
 } from "@material-ui/core";
 
-const Login = (login) => {
+const Login = ({ login }) => {
   return (
     <div>
       <Grid container spacing={0} justify="center" direction="row">
