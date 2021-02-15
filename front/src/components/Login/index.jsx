@@ -8,7 +8,14 @@ import {
   Link,
 } from "@material-ui/core";
 
-const Login = ({ login }) => {
+const Login = ({
+  loginValue: {
+    form: { name, email, password },
+    isStartEdit,
+  },
+  login,
+  setLogin,
+}) => {
   return (
     <div>
       <Grid container spacing={0} justify="center" direction="row">
@@ -29,7 +36,8 @@ const Login = ({ login }) => {
                 fullWidth
                 name="username"
                 variant="outlined"
-                value="yuki"
+                value={name}
+                onChange={(e) => setLogin({ name: e.target.value })}
                 required
                 autoFocus
               />
@@ -41,9 +49,9 @@ const Login = ({ login }) => {
                 fullWidth
                 name="email"
                 variant="outlined"
-                value="sawabe0v0@gmail.com"
+                value={email}
+                onChange={(e) => setLogin({ email: e.target.value })}
                 required
-                autoFocus
               />
             </Grid>
             <Grid item>
@@ -53,9 +61,9 @@ const Login = ({ login }) => {
                 fullWidth
                 name="password"
                 variant="outlined"
-                value="a8810097"
+                value={password}
+                onChange={(e) => setLogin({ password: e.target.value })}
                 required
-                autoFocus
               />
             </Grid>
             <Grid item>
