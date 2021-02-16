@@ -1,8 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Provider } from "react-redux";
-import { createStore, applyMiddleware } from "redux";
-import thunk from "redux-thunk";
 import DayjsUtils from "@date-io/dayjs";
 import { MuiPickersUtilsProvider } from "@material-ui/pickers";
 
@@ -12,20 +9,14 @@ import AddScheduleDialog from "./components/AddScheduleDialog/container";
 import CurrentScheduleDialog from "./components/CurrentScheduleDialog/container";
 import ErrorSnackbar from "./components/ErrorSnackbar/container";
 
-import rootReducer from "./redux/rootReducer";
-
-const store = createStore(rootReducer, applyMiddleware(thunk));
-
 const App = () => (
-  <Provider store={store}>
-    <MuiPickersUtilsProvider utils={DayjsUtils}>
-      <Navigation />
-      <CalendarBoard />
-      <AddScheduleDialog />
-      <CurrentScheduleDialog />
-      <ErrorSnackbar />
-    </MuiPickersUtilsProvider>
-  </Provider>
+  <MuiPickersUtilsProvider utils={DayjsUtils}>
+    <Navigation />
+    <CalendarBoard />
+    <AddScheduleDialog />
+    <CurrentScheduleDialog />
+    <ErrorSnackbar />
+  </MuiPickersUtilsProvider>
 );
 
 export default App;
