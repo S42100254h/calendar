@@ -1,4 +1,4 @@
-import { loginSetValue } from "./actions";
+import { LOGIN_SET_VALUE } from "./actions";
 
 const init = {
   form: {
@@ -11,7 +11,7 @@ const init = {
 
 const loginReducer = (state = init, action) => {
   switch (action.type) {
-  case loginSetValue:
+  case LOGIN_SET_VALUE:
     return { ...state, form: { ...state.form, ...action.payload } };
   default:
     return state;

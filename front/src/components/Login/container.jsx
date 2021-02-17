@@ -21,9 +21,6 @@ const mergeProps = (stateProps, dispatchProps) => {
   return {
     ...stateProps,
     ...dispatchProps,
-    setLogin: () => {
-      dispatchProps.setLogin(loginValue);
-    },
     login: () => {
       dispatchProps.login(loginValue);
     },
