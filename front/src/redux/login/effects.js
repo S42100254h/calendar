@@ -1,9 +1,9 @@
-import { loginSetValue } from "./actions";
+import { loginPost } from "./actions";
 import { post } from "../../services/api";
 
-export const asyncLoginSetValue = (value) => async (dispatch) => {
+export const asyncLoginPost = (value) => async (dispatch) => {
   const body = { ...value };
   const result = await post("auth/sign_in", body);
 
-  dispatch(loginSetValue(result));
+  dispatch(loginPost(result));
 };

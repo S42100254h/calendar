@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import Login from "./index";
 import { loginSetValue } from "../../redux/login/actions";
-import { asyncLoginSetValue } from "../../redux/login/effects";
+import { asyncLoginPost } from "../../redux/login/effects";
 
 const mapStateToProps = (state) => ({ loginValue: state.login });
 
@@ -10,7 +10,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(loginSetValue(value));
   },
   login: (value) => {
-    dispatch(asyncLoginSetValue(value));
+    dispatch(asyncLoginPost(value));
   },
 });
 
