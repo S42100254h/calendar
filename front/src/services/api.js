@@ -20,9 +20,9 @@ export const post = async (path, body, header) => {
   const options = { ...header, method: "POST", body: JSON.stringify(body) };
   const resp = await fetch(url(path), options);
 
-  localStorage.setItem("access-token", resp.headers["access-token"]);
-  localStorage.setItem("client", resp.headers.client);
-  localStorage.setItem("uid", resp.headers.uid);
+  localStorage.setItem("access-token", resp.headers.get("access-token"));
+  localStorage.setItem("client", resp.headers.get("client"));
+  localStorage.setItem("uid", resp.headers.get("uid"));
 
   checkError(resp.status);
   const result = await resp.json();
