@@ -1,12 +1,6 @@
 const host = "http://localhost:3001/api/v1";
 const url = (path) => `${host}/${path}`;
 
-const header = {
-  headers: {
-    "Content-Type": "application/json",
-  },
-};
-
 const checkError = (status) => {
   // 今回は400以上の場合は、全部まとめてエラーとして処理
   if (status >= 400) {
@@ -22,9 +16,14 @@ export const get = async (path) => {
   return result;
 };
 
-export const post = async (path, body) => {
+export const post = async (path, body, header) => {
   const options = { ...header, method: "POST", body: JSON.stringify(body) };
   const resp = await fetch(url(path), options);
+
+  localStorage.setItem("access-token", resp.headers["access-token"]);
+  localStorage.setItem("client", resp.headers.client);
+  localStorage.setItem("uid", resp.headers.uid);
+
   checkError(resp.status);
   const result = await resp.json();
 
