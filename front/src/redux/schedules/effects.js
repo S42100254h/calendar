@@ -8,6 +8,15 @@ import {
 import { get, post, deleteRequest } from "../../services/api";
 import { formatSchedule } from "../../services/schedule";
 
+const header = {
+  headers: {
+    "Content-Type": "application/json",
+    "access-token": localStorage.getItem("access-token"),
+    client: localStorage.getItem("client"),
+    uid: localStorage.getItem("uid"),
+  },
+};
+
 export const asyncSchedulesFetchItem = ({ month, year }) => async (dispatch) => {
   dispatch(schedulesSetLoading());
 
@@ -26,7 +35,7 @@ export const asyncSchedulesAddItem = (schedule) => async (dispatch) => {
 
   try {
     const body = { ...schedule, date: schedule.date.toISOString() };
-    const result = await post("schedules", body);
+    const result = await post("schedules", body, header);
 
     const newSchedule = formatSchedule(result);
     dispatch(schedulesAddItem(newSchedule));

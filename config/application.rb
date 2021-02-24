@@ -32,6 +32,7 @@ module Calendar
         resource "*",
                  headers: :any,
                  methods: [:get, :post, :put, :patch, :delete],
+                 expose: ["access-token", "uid", "client"],
                  credentials: true
       end
     end
