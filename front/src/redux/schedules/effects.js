@@ -34,7 +34,7 @@ export const asyncSchedulesAddItem = (schedule) => async (dispatch) => {
   dispatch(schedulesSetLoading());
 
   try {
-    const body = { ...schedule, date: schedule.date.toISOString() };
+    const body = { ...schedule, date: schedule.date.add(1, "day").toISOString() };
     const result = await post("schedules", body, header);
 
     const newSchedule = formatSchedule(result);
