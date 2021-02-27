@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   Button,
   TextField,
@@ -59,9 +60,22 @@ const SignIn = ({
                 className="button"
                 onClick={signIn}
               >
-                送信
+                ログイン
               </Button>
             </Grid>
+            <Link to="/signup">
+              <Grid item>
+                <Typography
+                  component="h3"
+                  varinat="contained"
+                  color="primary"
+                  type="submit"
+                  className="button"
+                >
+                  ユーザー登録はこちら
+                </Typography>
+              </Grid>
+            </Link>
           </Grid>
         </Grid>
       </Grid>
