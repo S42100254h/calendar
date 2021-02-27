@@ -11,6 +11,7 @@ import rootReducer from "./redux/rootReducer";
 
 import App from "./App";
 import SignIn from "./components/SignIn/container";
+import SignUp from "./components/SignUp/container";
 
 dayjs.locale("ja");
 dayjs.extend(relativeTime);
@@ -23,6 +24,7 @@ ReactDOM.render(
       <Router>
         <Route exact path="/" component={App} />
         <Route exact path="/signin" component={SignIn} />
+        <Route exact path="/signup" component={SignUp} />
       </Router>
     </Provider>
   </React.StrictMode>,
