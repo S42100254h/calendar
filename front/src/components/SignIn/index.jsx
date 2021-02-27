@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   Button,
   TextField,
@@ -8,7 +9,7 @@ import {
 
 const SignIn = ({
   authValue: {
-    form: { name, email, password },
+    form: { email, password },
     isStartEdit,
   },
   signIn,
@@ -26,19 +27,6 @@ const SignIn = ({
               >
                 ログイン
               </Typography>
-            </Grid>
-            <Grid item>
-              <TextField
-                type="name"
-                placeholder="ユーザー名"
-                fullWidth
-                name="username"
-                variant="outlined"
-                value={name}
-                onChange={(e) => setValue({ name: e.target.value })}
-                required
-                autoFocus
-              />
             </Grid>
             <Grid item>
               <TextField
@@ -72,9 +60,22 @@ const SignIn = ({
                 className="button"
                 onClick={signIn}
               >
-                送信
+                ログイン
               </Button>
             </Grid>
+            <Link to="/signup">
+              <Grid item>
+                <Typography
+                  component="h3"
+                  varinat="contained"
+                  color="primary"
+                  type="submit"
+                  className="button"
+                >
+                  ユーザー登録はこちら
+                </Typography>
+              </Grid>
+            </Link>
           </Grid>
         </Grid>
       </Grid>

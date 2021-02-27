@@ -16,7 +16,6 @@ const mapDispatchToProps = (dispatch) => ({
 
 const mergeProps = (stateProps, dispatchProps) => {
   const { authValue: { form: authValue } } = stateProps;
-  const { setValue, signUp } = dispatchProps;
 
   return {
     ...stateProps,
