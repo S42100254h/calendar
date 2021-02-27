@@ -1,4 +1,4 @@
-import { AUTH_SET_VALUE, AUTH_SIGN_IN } from "./actions";
+import { AUTH_SET_VALUE, AUTH_SIGN_IN, AUTH_SIGN_UP } from "./actions";
 
 const init = {
   form: {
@@ -14,6 +14,8 @@ const authReducer = (state = init, action) => {
   case AUTH_SET_VALUE:
     return { ...state, form: { ...state.form, ...action.payload } };
   case AUTH_SIGN_IN:
+    return { ...state, form: { ...state.form, ...action.payload } };
+  case AUTH_SIGN_UP:
     return { ...state, form: { ...state.form, ...action.payload } };
   default:
     return state;

@@ -1,5 +1,6 @@
 export const AUTH_SET_VALUE = "AUTH_SET_VALUE";
 export const AUTH_SIGN_IN = "AUTH_SIGN_IN";
+export const AUTH_SIGN_UP = "AUTH_SIGN_UP";
 
 export const authSetValue = (payload) => ({
   type: AUTH_SET_VALUE,
@@ -8,5 +9,10 @@ export const authSetValue = (payload) => ({
 
 export const authSignIn = (payload) => ({
   type: AUTH_SIGN_IN,
+  payload,
+});
+
+export const authSignUp = (payload) => ({
+  type: AUTH_SIGN_UP,
   payload,
 });
