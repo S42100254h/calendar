@@ -8,7 +8,7 @@ import {
 
 const SignIn = ({
   authValue: {
-    form: { name, email, password },
+    form: { email, password },
     isStartEdit,
   },
   signIn,
@@ -26,19 +26,6 @@ const SignIn = ({
               >
                 ログイン
               </Typography>
-            </Grid>
-            <Grid item>
-              <TextField
-                type="name"
-                placeholder="ユーザー名"
-                fullWidth
-                name="username"
-                variant="outlined"
-                value={name}
-                onChange={(e) => setValue({ name: e.target.value })}
-                required
-                autoFocus
-              />
             </Grid>
             <Grid item>
               <TextField
