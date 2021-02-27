@@ -1,4 +1,4 @@
-import { LOGIN_SET_VALUE, LOGIN_POST } from "./actions";
+import { AUTH_SET_VALUE, AUTH_SIGN_IN } from "./actions";
 
 const init = {
   form: {
@@ -9,15 +9,15 @@ const init = {
   isStartEdit: false,
 };
 
-const loginReducer = (state = init, action) => {
+const authReducer = (state = init, action) => {
   switch (action.type) {
-  case LOGIN_SET_VALUE:
+  case AUTH_SET_VALUE:
     return { ...state, form: { ...state.form, ...action.payload } };
-  case LOGIN_POST:
+  case AUTH_SIGN_IN:
     return { ...state, form: { ...state.form, ...action.payload } };
   default:
     return state;
   }
 };
 
-export default loginReducer;
+export default authReducer;

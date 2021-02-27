@@ -3,14 +3,14 @@ import calendarReducer from "./calendar/reducer";
 import addScheduleReducer from "./addSchedule/reducer";
 import schedulesReducer from "./schedules/reducer";
 import currentScheduleReducer from "./currentSchedule/reducer";
-import loginReducer from "./login/reducer";
+import authReducer from "./auth/reducer";
 
 const rootReducer = combineReducers({
   calendar: calendarReducer,
   addSchedule: addScheduleReducer,
   schedules: schedulesReducer,
   currentSchedule: currentScheduleReducer,
-  login: loginReducer,
+  auth: authReducer,
 });
 
 export default rootReducer;
