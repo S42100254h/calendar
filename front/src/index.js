@@ -10,7 +10,7 @@ import thunk from "redux-thunk";
 import rootReducer from "./redux/rootReducer";
 
 import App from "./App";
-import Login from "./components/Login/container";
+import SignIn from "./components/SignIn/container";
 
 dayjs.locale("ja");
 dayjs.extend(relativeTime);
@@ -22,7 +22,7 @@ ReactDOM.render(
     <Provider store={store}>
       <Router>
         <Route exact path="/" component={App} />
-        <Route exact path="/login" component={Login} />
+        <Route exact path="/signin" component={SignIn} />
       </Router>
     </Provider>
   </React.StrictMode>,

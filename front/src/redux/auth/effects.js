@@ -1,4 +1,4 @@
-import { loginPost } from "./actions";
+import { authSignIn } from "./actions";
 import { post } from "../../services/api";
 
 const header = {
@@ -7,9 +7,9 @@ const header = {
   },
 };
 
-export const asyncLoginPost = (value) => async (dispatch) => {
+export const asyncAuthSignIn = (value) => async (dispatch) => {
   const body = { ...value };
   const result = await post("auth/sign_in", body, header);
 
-  dispatch(loginPost(result));
+  dispatch(authSignIn(result));
 };

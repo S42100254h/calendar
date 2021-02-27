@@ -6,13 +6,13 @@ import {
   Typography,
 } from "@material-ui/core";
 
-const Login = ({
-  loginValue: {
+const SignIn = ({
+  authValue: {
     form: { name, email, password },
     isStartEdit,
   },
-  login,
-  setLogin,
+  signIn,
+  setValue,
 }) => {
   return (
     <div>
@@ -35,7 +35,7 @@ const Login = ({
                 name="username"
                 variant="outlined"
                 value={name}
-                onChange={(e) => setLogin({ name: e.target.value })}
+                onChange={(e) => setValue({ name: e.target.value })}
                 required
                 autoFocus
               />
@@ -48,7 +48,7 @@ const Login = ({
                 name="email"
                 variant="outlined"
                 value={email}
-                onChange={(e) => setLogin({ email: e.target.value })}
+                onChange={(e) => setValue({ email: e.target.value })}
                 required
               />
             </Grid>
@@ -60,7 +60,7 @@ const Login = ({
                 name="password"
                 variant="outlined"
                 value={password}
-                onChange={(e) => setLogin({ password: e.target.value })}
+                onChange={(e) => setValue({ password: e.target.value })}
                 required
               />
             </Grid>
@@ -70,7 +70,7 @@ const Login = ({
                 color="primary"
                 type="submit"
                 className="button"
-                onClick={login}
+                onClick={signIn}
               >
                 送信
               </Button>
@@ -82,4 +82,4 @@ const Login = ({
   );
 };
 
-export default Login;
+export default SignIn;
