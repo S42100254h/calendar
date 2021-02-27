@@ -1,30 +1,30 @@
 import {
-  LOGIN_SET_VALUE,
-  LOGIN_POST,
-  loginSetValue,
-  loginPost,
-} from "../../../redux/login/actions";
+  AUTH_SET_VALUE,
+  AUTH_SIGN_IN,
+  authSetValue,
+  authSignIn,
+} from "../../../redux/auth/actions";
 
 describe("actions.jsのテスト", () => {
-  it("loginSetValueのテスト", () => {
+  it("authSetValueのテスト", () => {
     const dummy = { name: "neko", email: "nekoneko@gmail.com", password: "nekowanko" };
-    const action = loginSetValue(dummy);
+    const action = authSetValue(dummy);
 
     expect(action).toStrictEqual(
       {
-        type: LOGIN_SET_VALUE,
+        type: AUTH_SET_VALUE,
         payload: dummy
       }
     );
   });
 
-  it("loginPostのテスト", () => {
+  it("authSignInのテスト", () => {
     const dummy = { name: "neko", email: "nekoneko@gmail.com", password: "nekowanko" };
-    const action = loginPost(dummy);
+    const action = authSignIn(dummy);
 
     expect(action).toStrictEqual(
       {
-        type:   LOGIN_POST,
+        type:   AUTH_SIGN_IN,
         payload: dummy
       }
     );
