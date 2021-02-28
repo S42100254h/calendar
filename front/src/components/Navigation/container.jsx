@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import Navigation from "./index";
 import { asyncSchedulesFetchItem } from "../../redux/schedules/effects";
+import { asyncAuthSignOut, asyncAuthSignUp } from "../../redux/auth/effects";
 
 import { getNextMonth, getPreviousMonth, getMonth, formatMonth } from "../../services/calendar";
 import { calendarSetMonth } from "../../redux/calendar/actions";
@@ -13,6 +14,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   fetchItem: (month) => {
     dispatch(asyncSchedulesFetchItem(month));
+  },
+  signOut: () => {
+    dispatch(asyncAuthSignOut());
   },
 });
 
