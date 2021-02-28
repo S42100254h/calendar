@@ -30,8 +30,8 @@ export const post = async (path, body, header) => {
   return result;
 };
 
-export const deleteRequest = async (path) => {
-  const options = { method: "DELETE" };
+export const deleteRequest = async (path, header) => {
+  const options = { ...header, method: "DELETE" };
   const resp = await fetch(url(path), options);
   checkError(resp.status);
 };
