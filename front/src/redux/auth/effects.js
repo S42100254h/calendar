@@ -1,4 +1,4 @@
-import { authSignIn, authSignUp } from "./actions";
+import { authSignIn, authSignUp, authSignOut } from "./actions";
 import { post } from "../../services/api";
 
 const header = {
@@ -19,4 +19,10 @@ export const asyncAuthSignUp = (value) => async (dispatch) => {
   const result = await post("auth", body, header);
 
   dispatch(authSignUp(result));
+};
+
+export const asyncAuthSignOut = () => async (dispatch) => {
+  await delete("auth/sign_out", header);
+
+  dispatch(authSignOut())
 };
