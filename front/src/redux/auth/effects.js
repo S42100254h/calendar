@@ -27,6 +27,7 @@ export const asyncAuthSignOut = () => async (dispatch) => {
     },
   };
   await deleteRequest("auth/sign_out", header);
+  localStorage.clear();
 
   dispatch(authSignOut());
 };
