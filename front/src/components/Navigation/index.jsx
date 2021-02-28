@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { DatePicker } from "@material-ui/pickers";
 import { IconButton, Toolbar, Typography, Tooltip, Button, Grid } from "@material-ui/core";
 import ArrowBackIos from "@material-ui/icons/ArrowBackIos";
@@ -8,6 +9,7 @@ import CalendarTodayIcon from "@material-ui/icons/CalendarToday";
 import "./style.css";
 
 const Navigation = ({ setNextMonth, setPreviousMonth, setMonth, month, signOut }) => {
+  const history = useHistory();
   return (
     <Toolbar className="toolbar">
       <Grid container justify="space-between">
@@ -53,7 +55,7 @@ const Navigation = ({ setNextMonth, setPreviousMonth, setMonth, month, signOut }
           </Grid>
         </Grid>
         <Grid item>
-          <Button variant="outlined" color="primary" onClick={signOut}>
+          <Button variant="outlined" color="primary" onClick={() => { signOut(); history.push("/signup"); }}>
             ログアウト
           </Button>
         </Grid>
