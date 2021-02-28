@@ -54,7 +54,7 @@ const SignIn = ({
             </Grid>
             <Grid item>
               <Button
-                varinat="contained"
+                variant="contained"
                 color="primary"
                 type="submit"
                 className="button"
@@ -67,7 +67,7 @@ const SignIn = ({
               <Grid item>
                 <Typography
                   component="h3"
-                  varinat="contained"
+                  variant="contained"
                   color="primary"
                   type="submit"
                   className="button"

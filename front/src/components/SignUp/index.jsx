@@ -66,7 +66,7 @@ const SignUp = ({
             </Grid>
             <Grid item>
               <Button
-                varinat="contained"
+                variant="contained"
                 color="primary"
                 type="submit"
                 className="button"

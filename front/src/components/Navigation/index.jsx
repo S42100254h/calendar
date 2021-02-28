@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { DatePicker } from "@material-ui/pickers";
-import { IconButton, Toolbar, Typography, Tooltip } from "@material-ui/core";
+import { IconButton, Toolbar, Typography, Tooltip, Button } from "@material-ui/core";
 import ArrowBackIos from "@material-ui/icons/ArrowBackIos";
 import ArrowForwardIos from "@material-ui/icons/ArrowForwardIos";
 import DehazeIcon from "@material-ui/icons/Dehaze";
@@ -37,6 +37,9 @@ const Navigation = ({ setNextMonth, setPreviousMonth, setMonth, month }) => {
         disableToolbar
         autoOk="true"
       />
+      <Button variant="outlined" color="primary">
+        ログアウト
+      </Button>
     </Toolbar>
   );
 };
