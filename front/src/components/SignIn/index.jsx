@@ -72,6 +72,7 @@ const SignIn = ({
                   color="primary"
                   type="submit"
                   className="button"
+                  disabled={!email || !password}
                 >
                   ユーザー登録はこちら
                 </Typography>

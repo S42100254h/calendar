@@ -73,6 +73,7 @@ const SignUp = ({
                 type="submit"
                 className="button"
                 onClick={() => { signUp(); history.push("/"); }}
+                disabled={!name || !email || !password}
               >
                 送信
               </Button>
