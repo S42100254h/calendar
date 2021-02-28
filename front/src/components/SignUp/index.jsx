@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import {
   Button,
   TextField,
@@ -14,6 +15,7 @@ const SignUp = ({
   signUp,
   setValue,
 }) => {
+  const history = useHistory();
   return (
     <div>
       <Grid container spacing={0} justify="center" direction="row">
@@ -70,7 +72,7 @@ const SignUp = ({
                 color="primary"
                 type="submit"
                 className="button"
-                onClick={signUp}
+                onClick={() => { signUp(); history.push("/"); }}
               >
                 送信
               </Button>
