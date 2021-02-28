@@ -18,7 +18,7 @@ const authReducer = (state = init, action) => {
   case AUTH_SIGN_UP:
     return { ...state, form: { ...state.form, ...action.payload } };
   case AUTH_SIGN_OUT:
-    return { state: undefined };
+    return state;
   default:
     return state;
   }
