@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import Navigation from "./index";
 import { asyncSchedulesFetchItem } from "../../redux/schedules/effects";
-import { asyncAuthSignOut, asyncAuthSignUp } from "../../redux/auth/effects";
+import { asyncAuthSignOut } from "../../redux/auth/effects";
 
 import { getNextMonth, getPreviousMonth, getMonth, formatMonth } from "../../services/calendar";
 import { calendarSetMonth } from "../../redux/calendar/actions";
@@ -20,25 +20,29 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
-const mergeProps = (stateProps, dispatchProps) => ({
-  // reduxのstateからdayjsインスタンスに変更
-  month: getMonth(stateProps.calendar),
-  setNextMonth: () => {
-    const nextMonth = getNextMonth(stateProps.calendar);
-    dispatchProps.setMonth(nextMonth);
-    dispatchProps.fetchItem(nextMonth);
-  },
-  setPreviousMonth: () => {
-    const previousMonth = getPreviousMonth(stateProps.calendar);
-    dispatchProps.setMonth(previousMonth);
-    dispatchProps.fetchItem(previousMonth);
-  },
-  setMonth: (dayObj) => {
-    // dayjsインスタンスからreduxのstateに変更
-    const month = formatMonth(dayObj);
-    dispatchProps.setMonth(month);
-    dispatchProps.fetchItem(month);
-  },
-});
+const mergeProps = (stateProps, dispatchProps) => {
+  return {
+    ...stateProps,
+    ...dispatchProps,
+    // reduxのstateからdayjsインスタンスに変更
+    month: getMonth(stateProps.calendar),
+    setNextMonth: () => {
+      const nextMonth = getNextMonth(stateProps.calendar);
+      dispatchProps.setMonth(nextMonth);
+      dispatchProps.fetchItem(nextMonth);
+    },
+    setPreviousMonth: () => {
+      const previousMonth = getPreviousMonth(stateProps.calendar);
+      dispatchProps.setMonth(previousMonth);
+      dispatchProps.fetchItem(previousMonth);
+    },
+    setMonth: (dayObj) => {
+      // dayjsインスタンスからreduxのstateに変更
+      const month = formatMonth(dayObj);
+      dispatchProps.setMonth(month);
+      dispatchProps.fetchItem(month);
+    },
+  };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps, mergeProps)(Navigation);
