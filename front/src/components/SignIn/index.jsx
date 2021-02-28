@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import {
   Button,
   TextField,
@@ -15,6 +15,7 @@ const SignIn = ({
   signIn,
   setValue,
 }) => {
+  const history = useHistory();
   return (
     <div>
       <Grid container spacing={0} justify="center" direction="row">
@@ -58,7 +59,7 @@ const SignIn = ({
                 color="primary"
                 type="submit"
                 className="button"
-                onClick={signIn}
+                onClick={() => { signIn(); history.push("/"); }}
               >
                 ログイン
               </Button>
