@@ -7,7 +7,7 @@ import DehazeIcon from "@material-ui/icons/Dehaze";
 import CalendarTodayIcon from "@material-ui/icons/CalendarToday";
 import "./style.css";
 
-const Navigation = ({ setNextMonth, setPreviousMonth, setMonth, month }) => {
+const Navigation = ({ setNextMonth, setPreviousMonth, setMonth, month, signOut }) => {
   return (
     <Toolbar className="toolbar">
       <Grid container justify="space-between">
@@ -53,7 +53,7 @@ const Navigation = ({ setNextMonth, setPreviousMonth, setMonth, month }) => {
           </Grid>
         </Grid>
         <Grid item>
-          <Button variant="outlined" color="primary">
+          <Button variant="outlined" color="primary" onClick={signOut}>
             ログアウト
           </Button>
         </Grid>

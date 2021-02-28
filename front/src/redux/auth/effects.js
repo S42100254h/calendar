@@ -22,7 +22,7 @@ export const asyncAuthSignUp = (value) => async (dispatch) => {
 };
 
 export const asyncAuthSignOut = () => async (dispatch) => {
-  await delete("auth/sign_out", header);
+  await deleteRequest("auth/sign_out", header);
 
-  dispatch(authSignOut())
+  dispatch(authSignOut());
 };
