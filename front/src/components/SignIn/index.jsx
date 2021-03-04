@@ -6,6 +6,7 @@ import {
   Grid,
   Typography,
 } from "@material-ui/core";
+import "./style.css";
 
 const SignIn = ({
   authValue: {
@@ -18,15 +19,15 @@ const SignIn = ({
   const history = useHistory();
   return (
     <div>
-      <Grid container spacing={0} justify="center" direction="row">
+      <Grid container justify="center" direction="row">
         <Grid item>
-          <Grid container direction="column" justify="center" spacing={2} className="login-form">
+          <Grid container direction="column" alignItems="center" justify="center" spacing={2}>
             <Grid item>
               <Typography
                 component="h1"
-                variant="h5"
+                fontWeight="normal"
               >
-                ログイン
+                サインイン
               </Typography>
             </Grid>
             <Grid item>
@@ -59,20 +60,20 @@ const SignIn = ({
                 color="primary"
                 type="submit"
                 className="button"
+                disabled={!email || !password}
                 onClick={() => { signIn(); history.push("/"); }}
               >
-                ログイン
+                サインイン
               </Button>
             </Grid>
+            <br />
             <Link to="/signup">
               <Grid item>
                 <Typography
-                  component="h3"
                   variant="contained"
                   color="primary"
                   type="submit"
                   className="button"
-                  disabled={!email || !password}
                 >
                   ユーザー登録はこちら
                 </Typography>
