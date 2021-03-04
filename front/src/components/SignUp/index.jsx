@@ -18,9 +18,9 @@ const SignUp = ({
   const history = useHistory();
   return (
     <div>
-      <Grid container spacing={0} justify="center" direction="row">
+      <Grid container justify="center" direction="row">
         <Grid item>
-          <Grid container direction="column" justify="center" spacing={2} className="login-form">
+          <Grid container direction="column" alignItems="center" justify="center" spacing={2}>
             <Grid item>
               <Typography
                 component="h1"
@@ -73,6 +73,7 @@ const SignUp = ({
                 type="submit"
                 className="button"
                 onClick={() => { signUp(); history.push("/"); }}
+                disabled={!name || !email || !password}
               >
                 送信
               </Button>
