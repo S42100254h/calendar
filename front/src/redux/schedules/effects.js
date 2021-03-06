@@ -49,7 +49,7 @@ export const asyncSchedulesDeleteItem = (id) => async (dispatch, getState) => {
   const currentSchedules = getState().schedules.items;
 
   try {
-    await deleteRequest(`schedules/${id}`);
+    await deleteRequest(`schedules/${id}`, header);
 
     // 成功したらローカルのstateを削除
     const newSchedules = currentSchedules.filter((s) => s.id !== id);
