@@ -11,7 +11,7 @@ const mapDispatchToProps = (dispatch) => ({
   },
   deleteItem: (id) => {
     dispatch(asyncSchedulesDeleteItem(id));
-    dispatch(currentScheduleCloseDialog);
+    dispatch(currentScheduleCloseDialog());
   },
 });
 
