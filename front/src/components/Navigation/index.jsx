@@ -55,7 +55,7 @@ const Navigation = ({ setNextMonth, setPreviousMonth, setMonth, month, signOut }
           </Grid>
         </Grid>
         <Grid item>
-          <Button variant="outlined" color="primary" onClick={() => { signOut(); history.push("/signup"); }}>
+          <Button variant="outlined" color="primary" onClick={() => { signOut(); history.push("/signin"); }}>
             ログアウト
           </Button>
         </Grid>
